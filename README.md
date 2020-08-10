@@ -789,7 +789,7 @@ TODO: Add architectural diagram
 
 - Numerical constants (literals) should not be coded directly, except for -1, 0, and 1, which can appear in a for loop as counter values.
 
-###Java Source File Example
+### Java Source File Example
 ```
 package MobileController;
 
