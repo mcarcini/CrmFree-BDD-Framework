@@ -73,7 +73,7 @@ This framework is not recommended for projects with the following characteristic
 ### Steps
 
 1. Download Java JDK according to your OS and processor architecture(x86 or x64) and install it. You can download it from the following link:
-[Java JDK](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+[Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 2. Create a new environment variable called JAVA_HOME and make sure to point it to the Java JDK location (Commonly located in C:\ProgramFiles\Java%JDK_Version%)
 
@@ -248,7 +248,7 @@ ANDROID_HOME and the variable value field will be the ANDROID SDK path location,
 
 	![Kobiton](Assets/img/Kobiton/Kobiton2.png "Kobiton")
 	
-4. Go to the following address: [https://portal.kobiton.com/devices](https://portal.kobiton.com/devices) and select a device and click on the icon with 3 dots.
+4. Go to the following address: [https://portal.kobiton.com/devices](https://portal.kobiton.com/devices) and select a device by clicking on the icon with 3 dots.
 
 	![Kobiton](Assets/img/Kobiton/Kobiton3.png "Kobiton")
 
@@ -264,28 +264,28 @@ ANDROID_HOME and the variable value field will be the ANDROID SDK path location,
 
 2. Once downloaded, go to its folder location, extract it and then double click idealC.exe. A screen like the following will be displayed:
 
-   ![Installing Intellij Idea](Assets/img/Appium/Intellij1.png "Installing Intellij Idea") 
+   ![Installing Intellij Idea](Assets/img/IntelliJ/Intellij1.png "Installing Intellij Idea") 
    
 3. In this case, the default IntelliJ installation options will be used, so, click "Next" and then on the "Install" and the following screen should appear:
 
-	![Installing Intellij Idea](Assets/img/Appium/Intellij2.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij2.png "Installing Intellij Idea")
 	
 	Check the option:"Run IntelliJ IDEA Community Edition" and then click on the "Finish" button to start Intellij Idea.
   
 4. After IntelliJ Idea starts, go to **File>Open**. Promptly  will appear a dialog and select **the path where is located the framework"** and click "Ok"
 
-   ![Installing Intellij Idea](Assets/img/Appium/Intellij3.png "Installing Intellij Idea")    
+   ![Installing Intellij Idea](Assets/img/IntelliJ/Intellij3.png "Installing Intellij Idea")    
 
 5. In the **Project View** located on the left side, click on **Slm_slf_suite_android**. It will unfold some folders and files, right-click on pom.xml file then select **Maven>Download Sources**. Maven will start to download all the dependencies needed to start to work with the framework.
 
 6. Click "Add Configuration" to start with the project configuration. Promptly will appear a dialog, click on the plus icon and then select "Maven" 
 
-	![Installing Intellij Idea](Assets/img/Appium/Intellij4.png "Installing Intellij Idea")   
-	![Installing Intellij Idea](Assets/img/Appium/Intellij5.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij4.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij5.png "Installing Intellij Idea")   
 
 7. Enter a name for the Run Configuration and enter the following parameters:
 	
-	![Installing Intellij Idea](Assets/img/Appium/Intellij7.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij7.png "Installing Intellij Idea")
 	
 	**Note:** The kobiton-store and the device name should be updated depending on the app version and the device that is being used.	
 
@@ -508,7 +508,7 @@ public class PublishResultInTestRail implements IRunAfterScenario {
 }
 ```
 
-2. The framework has a task system that was build using spring-core framework, the following code will call all the tasks of the project.
+2. The framework has a task system that was built using spring-core framework, the following code will call all the tasks of the project.
 
 ```java
     @After
@@ -523,7 +523,7 @@ public class PublishResultInTestRail implements IRunAfterScenario {
 
 ### Sharing information across screens
 
-The framework has some DTO classes that help to share information across screens. These dtos implement the singleton design pattern.
+The framework has some DTO classes that help to share information across screens. These DTOS implement the singleton design pattern.
 
 ### Example: 
 
