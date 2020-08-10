@@ -672,7 +672,7 @@ August/10/2020
 
 ## Tech Documentation
 
-###Introduction 
+### Introduction 
 The Cucumber Mobile framework was designed to allow the integration for Android using open source libraries alongside Appium for the interface with the devices and Maven for dependencies management, also the use of Gherkin language makes the test-ware generate very easy to understand by non-technical people.
 
 <a name="ArchitectureDiagram"></a>
@@ -683,13 +683,13 @@ TODO: Add architectural diagram
 <a name="CodeAndNamingConventions"></a>
 ## Code and Naming Conventions
 
-###Common Ground:
+### Common Ground:
 
 - 80% of the lifetime cost of a piece of software goes to maintenance.
 - Prioritize coding readability instead of code complexity.
 - Code conventions improve the readability of the software, allowing engineers to understand new code more quickly and thoroughly.
 
-###File Organization:
+### File Organization:
 
 - A file consists of sections that should be separated by blank lines and an optional comment identifying each section. 
 - Files longer than 2000 lines are cumbersome and should be avoided.
@@ -703,18 +703,18 @@ TODO: Add architectural diagram
         ```
     2. Class and interface declarations.
 
-###Indentation:
+### Indentation:
 
 - Well executed Indentation is primordial for code legibility
 - Four spaces should be used as the unit of indentation. The exact construction of the indentation(spaces vs. tabs) is unspecified. Tabs must be set exactly every 8 spaces (not 4).
 - Avoid lines longer than 80 characters, since they’re not handled well by many terminals and tools.
 
-###Comments:
+### Comments:
 
 - Comments should be used to give overviews of code and provide additional information that is not readily available in the code itself. 
 - Comments should contain only information that is relevant to reading and understanding the program.
 
-###Declarations
+### Declarations
 
 - One declaration per line is recommended since it encourages commenting. Example:
     ```
@@ -746,7 +746,7 @@ TODO: Add architectural diagram
         }
     ```
 
-###White Space
+### White Space
 - Blank lines improve readability by setting off sections of code that are logically related. 
 - Two blank lines should always be used in the following circumstances:
     1. Between sections of a source file.
@@ -757,7 +757,7 @@ TODO: Add architectural diagram
     3. Before a block or single-line comment.
     4. Between logical sections inside a method to improve readability.
 
-###Naming conventions:
+### Naming conventions:
 - Meaningful and understandable variables name helps anyone to understand the reason of using it. 
 - Avoid the use of digits in variable names.
 - Use plural names if it is semantically appropriate.
@@ -776,7 +776,7 @@ TODO: Add architectural diagram
 | Delegate Name  | PascalCase  |
 | Enum Type Name  | camelCase  |
 
-###Recommendations
+### Recommendations
 - Aim for low Cohesion and High Coupling
 - Avoid using comments if possible, we should aim to have a readable and understandable code.
 - Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:
@@ -873,16 +873,16 @@ public class MobileEngine {
 <a name="PackagingTechnology"></a>
 ## Packaging Technology
 
-#MAVEN 
+# MAVEN 
 Apache Maven is a software project management and build management tool for Java Frameworks. 
 
-##Why Maven?
+## Why Maven?
 - Central repository to get dependencies.
 - Maintaining common structure across the organization. Flexibility in Integrating with CI tools.
 - Plugins for Test framework execution.
  
 For Maven configuration follow the installation guide
-###Standard project structure use 
+### Standard project structure use 
 Under this directory you will notice the following standard project structure. 
 The src/test/java directory contains the project source code, the src/test/java directory contains the test source, and the pom.xml
 
@@ -903,7 +903,7 @@ The src/test/java directory contains the project source code, the src/test/java 
     |                     -- AppTest.java
 ```
 
-##The POM 
+## The POM 
 POM stands for "Project Object Model". It is an XML representation of a Maven project held in a file named pom.xml 
 
 The POM contains all necessary information about a project, as well as configurations of plugins to be used during the build process. 
@@ -920,7 +920,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <version>1.0</version>
 </project>
 ```
-###Dependencies 
+### Dependencies 
 The cornerstone of the POM is its dependency list. Most projects depend on others to build and run correctly. 
 If all Maven does for you is manage this list, you have gained a lot. 
 Maven downloads and links the dependencies on compilation, as well as on other goals that require them.
@@ -1073,25 +1073,24 @@ slm_slf_suite_android
 |  |                       \---testRail.properties
 ```
 
-####dto Folder
-Classes declared here contains the objects that we have using through the test execution and some information got by the endpoints
-
-####endpoints Folder
-Classes declared here contains all the endpoints and paths needed to perform the requests.
-
-####pages Folder
-Classes declared here contains the structure of each of the pages (screens) that the tests uses.
-
-####utils Folder
-Classes declared here contains utility logic to help doing additional processes on the tests.
- 
-####resources Folder
-This folder is located in the following path src/test/resources. Here are all the feature files containing the test cases.
 
 <a name="FeaturesDevGuide"></a>
 ## Features – Dev Guide
 
-Please see the following section: [Implementation Guide](#ImplementationGuide)
+#### dto Folder
+Classes declared here contains the objects that we have using through the test execution and some information got by the endpoints
+
+#### endpoints Folder
+Classes declared here contains all the endpoints and paths needed to perform the requests.
+
+#### pages Folder
+Classes declared here contains the structure of each of the pages (screens) that the tests uses.
+
+#### utils Folder
+Classes declared here contains utility logic to help doing additional processes on the tests.
+ 
+#### resources Folder
+This folder is located in the following path src/test/resources. Here are all the feature files containing the test cases.
 
 <a name="ExtendingThisFramework"></a>
 ## Extending this framework
