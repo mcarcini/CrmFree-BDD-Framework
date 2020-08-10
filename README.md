@@ -123,12 +123,12 @@ You will also need to ask this project administrator for:
 
 2. Once Downloaded, go to its folder location and double click on the jdk.exe file. A screen like the following will be displayed: 
 
-	![installation wizard JDK](Assests/img/JDK/jdk_1.png "installation wizard JDK")
+	![installation wizard JDK](Assets/img/JDK/jdk_1.png "installation wizard JDK")
 
 3. In this case the default JDK installation options will be used, so, click 
  "Next" until the following screen appears:
 
-	![finish installation JDK](Assests/img/JDK/jdk_2.png "finish installation JDK")
+	![finish installation JDK](Assets/img/JDK/jdk_2.png "finish installation JDK")
 
 4. Once the installation is completed, click on the "Close" button.
 
@@ -137,18 +137,18 @@ You will also need to ask this project administrator for:
 1. In the windows search bar look for **This PC** and right-click on it. Then, go to **Properties>Advanced system settings>Environment Variables**. A screen like
 the following will be displayed:
 
-	![Environment variables window](Assests/img/JAVA_HOME/java_home1.png "Environment variables window")
+	![Environment variables window](Assets/img/JAVA_HOME/java_home1.png "Environment variables window")
 
 2. Click the "New" button located below the **System variables** section. A screen with variable name and value fields will be displayed. The Variable name field will be
 JAVA_HOME and the variable value field will be the JDK path location, commonly is located in the following path:
 **C:\Program Files\Java\jdk[java-version]**
 
-	![Adding new environment variable](Assests/img/JAVA_HOME/java_home2.png "Adding new environment variable")
+	![Adding new environment variable](Assets/img/JAVA_HOME/java_home2.png "Adding new environment variable")
 
 
 3. Click "OK" to save the variable
 
-	![Save new environment variable](Assests/img/JAVA_HOME/java_home3.png "Save new environment variable")
+	![Save new environment variable](Assets/img/JAVA_HOME/java_home3.png "Save new environment variable")
 
 
 ### Install Appium Desktop
@@ -157,16 +157,16 @@ JAVA_HOME and the variable value field will be the JDK path location, commonly i
 
 2. Once downloaded, go to its folder location and double click on the appium.exe file. A screen like the following will be displayed:
 
-	![Installing appium](Assests/img/Appium/AppiumInstallation1.png "Installing appium")
+	![Installing appium](Assets/img/Appium/AppiumInstallation1.png "Installing appium")
 
 3. Check "the only for me" option if you want to install appium only for the current user. Otherwise check "Anyone who uses this computer (all users)" option to
 install it in all machine users. Next, click on the "Install" button.
 
-	![Installing appium](Assests/img/Appium/AppiumInstallation1.png "Installing appium")
+	![Installing appium](Assets/img/Appium/AppiumInstallation1.png "Installing appium")
 
 4. Once the installation is completed, click on the "Finish" button.
 
-	![Finish appium installation](Assests/img/Appium/AppiumInstallation2.png "Finish appium installation")
+	![Finish appium installation](Assets/img/Appium/AppiumInstallation2.png "Finish appium installation")
 
 ### Install Android Studio
 
@@ -240,22 +240,22 @@ ANDROID_HOME and the variable value field will be the ANDROID SDK path location,
 
 1. Go to the following address: [https://portal.kobiton.com/apps](https://portal.kobiton.com/apps) and login, then the following screen should be displayed.
 
-	![Kobiton](Assests/img/Kobiton/Kobiton1.png "Kobiton")
+	![Kobiton](Assets/img/Kobiton/Kobiton1.png "Kobiton")
 
 2. Click "Add a new app", Promptly will appear a dialog and select **the path where is located the apk"** and click "Open" and then after a few seconds the app should be uploaded.
 
 3. Click on the uploaded version and copy the App ID because it's gonna be used as a parameter(-DkobitonStore) in the project.
 
-	![Kobiton](Assests/img/Kobiton/Kobiton2.png "Kobiton")
+	![Kobiton](Assets/img/Kobiton/Kobiton2.png "Kobiton")
 	
 4. Go to the following address: [https://portal.kobiton.com/devices](https://portal.kobiton.com/devices) and select a device and click on the icon with 3 dots.
 
-	![Kobiton](Assests/img/Kobiton/Kobiton3.png "Kobiton")
+	![Kobiton](Assets/img/Kobiton/Kobiton3.png "Kobiton")
 
 5. Click "Automation Settings" and copy the device name and the kobitonServerUrl because they are gonna be used as a parameter in the project.
 
-	![Kobiton](Assests/img/Kobiton/Kobiton4.png "Kobiton")
-	![Kobiton](Assests/img/Kobiton/Kobiton5.png "Kobiton")
+	![Kobiton](Assets/img/Kobiton/Kobiton4.png "Kobiton")
+	![Kobiton](Assets/img/Kobiton/Kobiton5.png "Kobiton")
 
 
 ### Intellij Idea 
@@ -264,28 +264,28 @@ ANDROID_HOME and the variable value field will be the ANDROID SDK path location,
 
 2. Once downloaded, go to its folder location, extract it and then double click idealC.exe. A screen like the following will be displayed:
 
-   ![Installing Intellij Idea](Assests/img/Appium/Intellij1.png "Installing Intellij Idea") 
+   ![Installing Intellij Idea](Assets/img/Appium/Intellij1.png "Installing Intellij Idea") 
    
 3. In this case, the default IntelliJ installation options will be used, so, click "Next" and then on the "Install" and the following screen should appear:
 
-	![Installing Intellij Idea](Assests/img/Appium/Intellij2.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/Appium/Intellij2.png "Installing Intellij Idea")
 	
 	Check the option:"Run IntelliJ IDEA Community Edition" and then click on the "Finish" button to start Intellij Idea.
   
 4. After IntelliJ Idea starts, go to **File>Open**. Promptly  will appear a dialog and select **the path where is located the framework"** and click "Ok"
 
-   ![Installing Intellij Idea](Assests/img/Appium/Intellij3.png "Installing Intellij Idea")    
+   ![Installing Intellij Idea](Assets/img/Appium/Intellij3.png "Installing Intellij Idea")    
 
 5. In the **Project View** located on the left side, click on **Slm_slf_suite_android**. It will unfold some folders and files, right-click on pom.xml file then select **Maven>Download Sources**. Maven will start to download all the dependencies needed to start to work with the framework.
 
 6. Click "Add Configuration" to start with the project configuration. Promptly will appear a dialog, click on the plus icon and then select "Maven" 
 
-	![Installing Intellij Idea](Assests/img/Appium/Intellij4.png "Installing Intellij Idea")   
-	![Installing Intellij Idea](Assests/img/Appium/Intellij5.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/Appium/Intellij4.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/Appium/Intellij5.png "Installing Intellij Idea")   
 
 7. Enter a name for the Run Configuration and enter the following parameters:
 	
-	![Installing Intellij Idea](Assests/img/Appium/Intellij7.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/Appium/Intellij7.png "Installing Intellij Idea")
 	
 	**Note:** The kobiton-store and the device name should be updated depending on the app version and the device that is being used.	
 
