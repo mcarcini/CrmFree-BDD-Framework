@@ -873,10 +873,10 @@ public class MobileEngine {
 <a name="PackagingTechnology"></a>
 ## Packaging Technology
 
-# MAVEN 
+### MAVEN 
 Apache Maven is a software project management and build management tool for Java Frameworks. 
 
-## Why Maven?
+### Why Maven?
 - Central repository to get dependencies.
 - Maintaining common structure across the organization. Flexibility in Integrating with CI tools.
 - Plugins for Test framework execution.
@@ -903,7 +903,7 @@ The src/test/java directory contains the project source code, the src/test/java 
     |                     -- AppTest.java
 ```
 
-## The POM 
+### The POM 
 POM stands for "Project Object Model". It is an XML representation of a Maven project held in a file named pom.xml 
 
 The POM contains all necessary information about a project, as well as configurations of plugins to be used during the build process. 
