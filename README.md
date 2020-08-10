@@ -19,6 +19,20 @@ The following list can serve as a starting point for the available documentation
 
 * [Other Resources](#OtherResources)
 
+Tech Documentation
+	* Architecture Diagram
+	* Code and Naming Conventions
+	* Packaging Technology
+    * File and Folder Structure and Organization
+	* Features – Dev Guide
+	* Extending this framework
+	* Dark (undocumented) features
+	* Updates and Upcoming features
+	* Updating libraries, packages and referents
+	* General Test Plant
+		* Testing Strategy
+		* Issue and Defect Management
+		* Root Cause Analysis
 
 <a name="ProjectOverview"></a>
 ## Project Overview
