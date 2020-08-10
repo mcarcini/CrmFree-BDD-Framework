@@ -278,28 +278,28 @@ ANDROID_HOME and the variable value field will be the ANDROID SDK path location,
 
 2. Once downloaded, go to its folder location, extract it and then double click idealC.exe. A screen like the following will be displayed:
 
-   ![Installing Intellij Idea](Assets/img/IntelliJ/Intellij1.png "Installing Intellij Idea") 
+   ![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ1.png "Installing Intellij Idea") 
    
 3. In this case, the default IntelliJ installation options will be used, so, click "Next" and then on the "Install" and the following screen should appear:
 
-	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij2.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ2.png "Installing Intellij Idea")
 	
 	Check the option:"Run IntelliJ IDEA Community Edition" and then click on the "Finish" button to start Intellij Idea.
   
 4. After IntelliJ Idea starts, go to **File>Open**. Promptly  will appear a dialog and select **the path where is located the framework"** and click "Ok"
 
-   ![Installing Intellij Idea](Assets/img/IntelliJ/Intellij3.png "Installing Intellij Idea")    
+   ![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ3.png "Installing Intellij Idea")    
 
 5. In the **Project View** located on the left side, click on **Slm_slf_suite_android**. It will unfold some folders and files, right-click on pom.xml file then select **Maven>Download Sources**. Maven will start to download all the dependencies needed to start to work with the framework.
 
 6. Click "Add Configuration" to start with the project configuration. Promptly will appear a dialog, click on the plus icon and then select "Maven" 
 
-	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij4.png "Installing Intellij Idea")   
-	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij5.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ4.png "Installing Intellij Idea")   
+	![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ5.png "Installing Intellij Idea")   
 
 7. Enter a name for the Run Configuration and enter the following parameters:
 	
-	![Installing Intellij Idea](Assets/img/IntelliJ/Intellij7.png "Installing Intellij Idea")
+	![Installing Intellij Idea](Assets/img/IntelliJ/IntelliJ7.png "Installing Intellij Idea")
 	
 	**Note:** The kobiton-store and the device name should be updated depending on the app version and the device that is being used.	
 
