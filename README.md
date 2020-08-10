@@ -20,19 +20,19 @@ The following list can serve as a starting point for the available documentation
 * [Other Resources](#OtherResources)
 
 Tech Documentation
-	* Architecture Diagram
-	* Code and Naming Conventions
-	* Packaging Technology
-    * File and Folder Structure and Organization
-	* Features – Dev Guide
-	* Extending this framework
-	* Dark (undocumented) features
-	* Updates and Upcoming features
-	* Updating libraries, packages and referents
-	* General Test Plant
-		* Testing Strategy
-		* Issue and Defect Management
-		* Root Cause Analysis
+* [Architecture Diagram](#ArchitectureDiagram)
+* [Code and Naming Conventions](#CodeAndNamingConventions)
+* [Packaging Technology](#PackagingTechnology)
+* [File and Folder Structure and Organization](#FileAndFolderStructureAndOrganization)
+* [Features – Dev Guide](#FeaturesDevGuide)
+* [Extending this framework](#ExtendingThisFramework)
+* [Dark (undocumented) features](#Dark)
+* [Updates and Upcoming features](#UpdatesAndUpcomingfeatures)
+* [Updating libraries, packages and referents](#UpdatingLibraries)
+* [General Test Plant](#TestingStrategy)
+	* [Testing Strategy](#TestingStrategy)
+	* [Issue and Defect Management](#Issues)
+	* [Root Cause Analysis](#RootCauseAnalysis)
 
 <a name="ProjectOverview"></a>
 ## Project Overview
@@ -668,3 +668,487 @@ August/10/2020
 * [Appium Commands](http://appium.io/docs/en/commands/mobile-command/)
 * [Cheat Sheet for Selenium Automation](https://www.cppbuzz.com/selenium/cheat-sheet-for-selenium-automation)
 * [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+
+## Tech Documentation
+
+###Introduction 
+The Cucumber Mobile framework was designed to allow the integration for Android using open source libraries alongside Appium for the interface with the devices and Maven for dependencies management, also the use of Gherkin language makes the test-ware generate very easy to understand by non-technical people.
+
+<a name="ArchitectureDiagram"></a>
+## Architecture Diagram
+
+TODO: Add architectural diagram
+
+<a name="CodeAndNamingConventions"></a>
+## Code and Naming Conventions
+
+###Common Ground:
+
+- 80% of the lifetime cost of a piece of software goes to maintenance.
+- Prioritize coding readability instead of code complexity.
+- Code conventions improve the readability of the software, allowing engineers to understand new code more quickly and thoroughly.
+
+###File Organization:
+
+- A file consists of sections that should be separated by blank lines and an optional comment identifying each section. 
+- Files longer than 2000 lines are cumbersome and should be avoided.
+- Java source files have the following ordering:    
+    1. Package and Import statements; for example:
+        ```
+            package PackageName; 
+            import java.io.File; 
+            import java.net.*;
+            import static org.junit.Assert.assertEquals;
+        ```
+    2. Class and interface declarations.
+
+###Indentation:
+
+- Well executed Indentation is primordial for code legibility
+- Four spaces should be used as the unit of indentation. The exact construction of the indentation(spaces vs. tabs) is unspecified. Tabs must be set exactly every 8 spaces (not 4).
+- Avoid lines longer than 80 characters, since they’re not handled well by many terminals and tools.
+
+###Comments:
+
+- Comments should be used to give overviews of code and provide additional information that is not readily available in the code itself. 
+- Comments should contain only information that is relevant to reading and understanding the program.
+
+###Declarations
+
+- One declaration per line is recommended since it encourages commenting. Example:
+    ```
+    //Recomended: 
+        int level;
+        int size;
+    //Wrong:
+    int level, getSize();
+  ```
+  
+- Bracket should act in a new line as such:
+    ```
+    //Recomended:
+        public Method() { 
+            int int1;             // beginning of method block
+            if (condition) {      
+                int int2;         // beginning of "if" block
+                ...
+            }
+        }
+    //Avoid:
+        public Method() {
+            int int1;             // beginning of method block
+            if (condition) 
+            {                     
+            int int2;             // beginning of "if" block
+            ...
+            }
+        }
+    ```
+
+###White Space
+- Blank lines improve readability by setting off sections of code that are logically related. 
+- Two blank lines should always be used in the following circumstances:
+    1. Between sections of a source file.
+    2. Between class and interface definitions.
+- One blank line should always be used in the following circumstances:
+    1. Between methods.
+    2. Between the local variables in a method and its first statement.
+    3. Before a block or single-line comment.
+    4. Between logical sections inside a method to improve readability.
+
+###Naming conventions:
+- Meaningful and understandable variables name helps anyone to understand the reason of using it. 
+- Avoid the use of digits in variable names.
+- Use plural names if it is semantically appropriate.
+- One character variable names should only be used in loops or for temporary variables.
+
+| Identifier Type  | Rule |
+| ------------- | ------------- |
+| Classes  | PascalCase  |
+| Method Name  | camelCase  |
+| methodParameters (Object object)  | camelCase  |
+| methodParameters (int number)  | camelCase  |
+| localVariable  | camelCase  |
+| fieldName  | camelCase  |
+| Constant Name  | PascalCase  |
+| Properties Name  | PascalCase  |
+| Delegate Name  | PascalCase  |
+| Enum Type Name  | camelCase  |
+
+###Recommendations
+- Aim for low Cohesion and High Coupling
+- Avoid using comments if possible, we should aim to have a readable and understandable code.
+- Avoid using an object to access a class (static) variable or method. Use a class name instead. For example:
+     ```
+        classMethod();          //OK 
+        AClass.classMethod();   //Ok
+  
+        anObject.classMethod(); //AVOID!
+     ```
+
+- Numerical constants (literals) should not be coded directly, except for -1, 0, and 1, which can appear in a for loop as counter values.
+
+###Java Source File Example
+```
+package MobileController;
+
+import static supportMobile.ReadJsonFileParameters.readParametersFile; import java.io.File;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit; import java.io.BufferedReader;
+import org.openqa.selenium.Platform; import org.openqa.selenium.WebDriver; import org.openqa.selenium.remote.*;
+
+public class MobileEngine {
+    public AppiumDriver driver; 
+    private Object workStation; 
+    private int excelRow = 2; 
+    public String defect ;
+    public boolean passed = false;
+    
+    public AppiumDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(AppiumDriver driver) { 
+        this.driver = driver;
+    }
+
+    public MobileEngine(String strPathConfigFile, String excelPath, int excelRow) { 
+        this.excelPath = excelPath;
+        this.excelRow = excelRow;
+        this.strPathConfigFile = strPathConfigFile;
+    }
+
+    public void runSetup() throws Exception { this.passed = false;
+        this.defect = "initialize";
+        if (strPathConfigFile.isEmpty()) {
+            this.defect = "the configuration file is empty or null";
+            return; 
+        }
+    
+    //Read Parameters Files
+        if (!ReadParametersFile(strPathConfigFile)){
+            return; 
+        }
+        ...
+    }
+
+    public void setMobileLocal() throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities(); ...
+    }
+
+    public boolean createHtmlLogFile(String strClassName) {
+        if (strPathResults.isEmpty() || strClassName.isEmpty()) { 
+            return false;
+        }
+        HtmlTemplate.fileName = strClassName; 
+        HtmlTemplate.pathName = this.strPathResults; 
+        if (!HtmlTemplate.Initialize()) {
+            System.out.println("Error on Open Html File"); 
+        }
+        return true; 
+    }
+
+    try {
+        String strRoot = Paths.get(".").toAbsolutePath().normalize().toString();
+        strRoot = strRoot.replace("\\", "/"); System.out.println(strRoot);
+        ExcelWorkbook = Framework_Env.dataPath;
+        if (ExcelWorkbook.toLowerCase().indexOf("c:") == -1 ) {
+            ExcelWorkbook = strRoot + ExcelWorkbook; }
+            System.out.println("RunSetup "+ ExcelWorkbook);
+            File file = new File(ExcelWorkbook);
+            if (!(file.exists() )) {
+                this.defect = "Excel path does not exist : " + ExcelWorkbook;
+                return false;
+            }
+        ...
+        return true;
+    } catch (Exception e) {
+        // TODO Auto-generated catch block this.defect = e.getMessage(); return false;
+    } 
+}
+```
+
+<a name="PackagingTechnology"></a>
+## Packaging Technology
+
+#MAVEN 
+Apache Maven is a software project management and build management tool for Java Frameworks. 
+
+##Why Maven?
+- Central repository to get dependencies.
+- Maintaining common structure across the organization. Flexibility in Integrating with CI tools.
+- Plugins for Test framework execution.
+ 
+For Maven configuration follow the installation guide
+###Standard project structure use 
+Under this directory you will notice the following standard project structure. 
+The src/test/java directory contains the project source code, the src/test/java directory contains the test source, and the pom.xml
+
+```
+|-- pom.xml 
+-- src
+    -- main
+    |    -- java
+    |        -- com
+    |            -- mycompany
+    |                 -- app
+    |                     -- App.java
+    -- test
+    |    -- java
+    |        -- com
+    |            -- mycompany
+    |                  -- app
+    |                     -- AppTest.java
+```
+
+##The POM 
+POM stands for "Project Object Model". It is an XML representation of a Maven project held in a file named pom.xml 
+
+The POM contains all necessary information about a project, as well as configurations of plugins to be used during the build process. 
+Also contains at least the following fields and they are mandatory:
+- groupId: GroupId will identify your project uniquely across all projects.
+- artifactId: An artifact is a file, usually a JAR, that gets deployed to a Maven repository.
+- version: Changes should be versioned, and this element keeps those versions in line. The three elements given above point to a specific version of a project, letting Maven know who we are dealing with, and when in its software lifecycle we want them.
+```
+<xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.codehaus.mojo</groupId> 
+    <artifactId>my-project</artifactId> 
+    <version>1.0</version>
+</project>
+```
+###Dependencies 
+The cornerstone of the POM is its dependency list. Most projects depend on others to build and run correctly. 
+If all Maven does for you is manage this list, you have gained a lot. 
+Maven downloads and links the dependencies on compilation, as well as on other goals that require them.
+
+```
+    <dependency> 
+        <groupId>junit</groupId> 
+        <artifactId>junit</artifactId> 
+        <version>4.12</version> 
+        <type>jar</type> 
+        <scope>test</scope> 
+        <optional>true</optional>
+    </dependency> 
+    ...
+</dependencies>
+```
+Maven uses a repository that is a directory where all the project jars, library jar, plugins or any other project-specific artifacts are stored and can be used by Maven easily. To search any dependence use maven repository.
+For more information about Maven follow the next link: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+
+<a name="FileAndFolderStructureAndOrganization"></a>
+## File and Folder Structure and Organization
+
+The following tree is the structure of the framework and how its file and folders are organized:
+```
+slm_slf_suite_android
+| .gitignore
+| README.md
+|
++---CucumberAndroidTesting
+|  | .classpath
+|  | .project
+|  |  pom.xml
+|  |
+|  +---src
+|  |    \---test
+|  |        \---java
+|  |             \---com
+|  |                  \---softtek
+|  |                       \---dto
+|  |                            \---CartDTO.java	
+|  |                            \---MovieDTO.java	
+|  |                            \---MoviesByCinemaJson.java
+|  |                            \---OrderDTO.java	
+|  |                            \---ProductDTO.java
+|  |                            \---SeatsByCinemaAndSessionDTO.java
+|  |                            \---TestCaseResultDTO.java
+|  |                            \---TicketJson.java	
+|  |                            \---UserDTO.java
+|  |                            \---Versions.java
+|  |                       \---enums
+|  |                            \---TestRailStatus.java
+|  |                       \--Infrastructure
+|  |                            \---Tasks
+|  |                                \---Impl
+|  |                                    \---afterescenario
+|  |                                        \---PublishResultInCucumberReport.java
+|  |                                        \---PublishResultInExtentReport.java
+|  |                                        \---PublishResultInTestRail.java
+|  |                                \---IRunAfterScenario.java    
+|  |                       \---pages
+|  |                            \---AddConcessionPage.java	
+|  |                            \---BillboardPage.java
+|  |                            \---CancelOrderPage.java
+|  |                            \---CartPage.java	
+|  |                            \---ChooseSeatsPage.java
+|  |                            \---ChooseTicketsPage.java
+|  |                            \---CorePage.java
+|  |                            \---HamburgerMenuPage.java	
+|  |                            \---LoginPage.java
+|  |                            \---MainPage.java
+|  |                            \---MyOrdersPage.java	
+|  |                            \---MyOrderSummaryPage.java	
+|  |                            \---OrderConfirmationPage.java
+|  |                            \---OrderDetailPage.java
+|  |                            \---PasswordResetPage.java
+|  |                            \---PaymentProcessPage.java
+|  |                            \---PersonalInformationPage.java
+|  |                            \---PreOrderDetailPage.java
+|  |                            \---ProfilePage.java	
+|  |                            \---ProfileSettingsPage.java
+|  |                            \---PromotionsPage.java
+|  |                            \---RecoverPasswordPage.java
+|  |                            \---RegisterPage.java
+|  |                            \---SelectCinemaPage.java
+|  |                       \---steps
+|  |                            \---AddConcessionSteps.java
+|  |                            \---BillboardSteps.java
+|  |                            \---CartSteps.java
+|  |                            \---ChooseSeatsSteps.java
+|  |                            \---ChooseTicketSteps.java
+|  |                            \---CoreSteps.java
+|  |                            \---HamburgerMenuSteps.java
+|  |                            \---Hooks.java
+|  |                            \---LoginSteps.java
+|  |                            \---MyOrdersSteps.java
+|  |                            \---MyOrderSummarySteps.java
+|  |                            \---OrderConfirmationSteps.java
+|  |                            \---OrderDetailSteps.java
+|  |                            \---PasswordResetSteps.java
+|  |                            \---PaymentProcessSteps.java
+|  |                            \---PersonalInformationSteps.java
+|  |                            \---PreOrderDetailSteps.java
+|  |                            \---ProfileSteps.java
+|  |                            \---PromotionsSteps.java
+|  |                            \---RecoverPasswordSteps.java
+|  |                            \---RegisterUserSteps.java
+|  |                            \---SelectCinemaSteps.java 
+|  |                       \---utils
+|  |                            \---testrail
+|  |                                \---api
+|  |                                    \---APIClient.java
+|  |                                    \---APIException.java
+|  |                                \---TestRailUtil.java
+|  |                            \---ConstantsMessages.java
+|  |                            \---CucumberReportUtil.java
+|  |                            \---DateUtil.java
+|  |                            \---EndpointUtil.java
+|  |                            \---ExtentReportUtils.java
+|  |                            \---GmailUtil.java
+|  |                            \---KeywordActions.java
+|  |                            \---PropertiesUtil.java
+|  |                            \---SharedDriver.java
+|  |                            \---StringInterpolation.java
+|  |                            \---TestStateHolder.java
+|  |                            \---UtilImage.java
+|  |                       \---RunCucumberTest.java
+|  |             \---resources
+|  |                       \---E2E
+|  |                            \---PurchaseConcessions.feature
+|  |                            \---PurchaseMixOrder.feature
+|  |                            \---PurchaseTickets.feature
+|  |                       \---SpecificFunctionality
+|  |                            \---Billboard.feature
+|  |                            \---CancelOrder.feature
+|  |                            \---Login.feature
+|  |                            \---MyOrders.feature
+|  |                            \---OrderDetailPage.feature
+|  |                            \---PartialPayments.feature
+|  |                            \---PayingWithPoints.feature
+|  |                            \---PaymentMethods.feature
+|  |                            \---PersonalInformationPage.feature
+|  |                            \---Profile.feature
+|  |                            \---Promotions.feature
+|  |                            \---RegisterUser.feature
+|  |                            \---ResetPassword.feature
+|  |                       \---applicationContext.xml
+|  |                       \---gmail.properties
+|  |                       \---html-config.xml
+|  |                       \---testData.properties
+|  |                       \---testRail.properties
+```
+
+####dto Folder
+Classes declared here contains the objects that we have using through the test execution and some information got by the endpoints
+
+####endpoints Folder
+Classes declared here contains all the endpoints and paths needed to perform the requests.
+
+####pages Folder
+Classes declared here contains the structure of each of the pages (screens) that the tests uses.
+
+####utils Folder
+Classes declared here contains utility logic to help doing additional processes on the tests.
+ 
+####resources Folder
+This folder is located in the following path src/test/resources. Here are all the feature files containing the test cases.
+
+<a name="FeaturesDevGuide"></a>
+## Features – Dev Guide
+
+Please see the following section: [Implementation Guide](#ImplementationGuide)
+
+<a name="ExtendingThisFramework"></a>
+## Extending this framework
+
+Please see the following section: [Implementation Guide](#ImplementationGuide)
+
+<a name="Dark"></a>
+## Dark (undocumented) features
+
+<a name="UpdatesAndUpcomingfeatures"></a>
+## Updates and Upcoming features
+
+<a name="UpdatingLibraries"></a>
+## Updating libraries, packages and referents
+
+- Selenium, cucumber, json-simple, log4j, appium, jackson-core, rest-assured, junit, javax-mail, extentreports.
+
+<a name="TestingStrategy"></a>
+## Testing Strategy
+
+Los casos de prueba, así como los resultados de las ejecuciones serán concentrados en Test Rail. Los Casos de
+prueba estarán asociados al Product Backlog Item (PBI) a través de su identificador de Jira.
+
+Cada inicio de ciclo se cargará el Plan de Pruebas del Sprint en Test rail y se desarrollarán los casos de prueba de
+acuerdo con el formato (plantilla) disponible por la propia herramienta.
+
+Los resultados de la ejecución de cada plan deberán también ser almacenados en el Plan de Pruebas de cada ciclo
+ya sea para pruebas manuales o automatizadas.
+
+<a name="Issues"></a>
+## Issue and Defect Management
+
+Los defectos se definen como eventos en los que el producto se comporta de manera inconsistente con los criterios
+de aceptación, Los defectos deberán ser registrados en Jira.
+
+Los defectos válidos deben registrarse con al menos la siguiente información:
+* Breve descripción
+* Descripción detallada
+* Criticidad
+* Prioridad
+* Ambiente donde se encontró.
+* Versión del Build o Release donde se detectó
+* Condiciones y pasos para reproducir.
+* Resultados actuales
+* Resultados previstos
+
+<a name="RootCauseAnalysis"></a>
+## Root Cause Analysis
+
+Cuando se encuentra un defecto en un entorno en un entorno menor al de producción:
+* Los ingenieros de control de calidad indicarán que el defecto fue encontrado por el proceso
+* Los ingenieros de desarrollo de software ejecutarán un proceso de 5 razones para formalizar e identificar la
+causa raíz.
+Cuando se encuentra un defecto en un entorno de producción:
+* Los ingenieros de control de calidad realizarán un proceso de 5 por qué para encontrar la causa de la fuga del
+defecto.
+* Los ingenieros de desarrollo de software ejecutarán un proceso de 5 razones para formalizar e identificar la
+causa raíz.
+* Los ingenieros de desarrollo de software proporcionarán un informe de impacto
+
